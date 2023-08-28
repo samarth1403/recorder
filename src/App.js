@@ -1,9 +1,11 @@
 import React from "react";
+import './App.css';
 import { Routes , Route } from "react-router-dom";
 import HomePage from "./Pages/HomePage";
 import MainLayout from './Components/Layout/MainLayout';
 import SignInPage from "./Pages/SignInPage";
 import SignUpPage from "./Pages/SignUpPage";
+import ProfilePage from "./Pages/ProfilePage";
 
 const App = () => {
     return <div>
@@ -12,6 +14,7 @@ const App = () => {
                 <Route exact index element={<HomePage/>}/>
                 <Route exact path="/sign-in-page" element={<SignInPage/>}/>
                 <Route exact path="/sign-up-page" element={<SignUpPage/>}/>
+                <Route exact path="/my-profile" element={<ProfilePage/>}/>
             </Route>
         </Routes>
     </div>
