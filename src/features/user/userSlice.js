@@ -17,6 +17,9 @@ const initialState = {
   isError: false,
   message: "",
   res: {},
+  cameraAccess: false,
+  audioAccess: false,
+  cameraStream: null,
 };
 
 export const registerUser = createAsyncThunk(
@@ -61,6 +64,9 @@ export const updateUserProfile = createAsyncThunk(
 );
 
 export const logoutUser = createAction("logout/user");
+export const giveCameraAccess = createAction("camera/access");
+export const giveAudioAccess = createAction("audio/access");
+export const setCameraStream = createAction("camera/stream");
 
 const userSlice = createSlice({
   name: "user",
@@ -177,6 +183,18 @@ const userSlice = createSlice({
 
     builder.addCase(logoutUser, (state, action) => {
       state.Token = null;
+    });
+
+    builder.addCase(giveCameraAccess, (state,action) => {
+      state.cameraAccess = action.payload;
+    });
+
+    builder.addCase(giveAudioAccess, (state,action) => {
+      state.audioAccess = action.payload;
+    });
+
+    builder.addCase(setCameraStream, (state,action) => {
+      state.cameraStream = action.payload;
     });
   },
 });
