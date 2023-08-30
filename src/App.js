@@ -6,17 +6,28 @@ import MainLayout from './Components/Layout/MainLayout';
 import SignInPage from "./Pages/SignInPage";
 import SignUpPage from "./Pages/SignUpPage";
 import ProfilePage from "./Pages/ProfilePage";
+import { PrivateRoute } from "./Routing/PrivateRoute";
 
 const App = () => {
-    return <div>
+    return (
+      <div>
         <Routes>
-            <Route exact path="/" element={<MainLayout/>}>
-                <Route exact index element={<HomePage/>}/>
-                <Route exact path="/sign-in-page" element={<SignInPage/>}/>
-                <Route exact path="/sign-up-page" element={<SignUpPage/>}/>
-            </Route>
+          <Route exact path="/" element={<MainLayout />}>
+            <Route
+              exact
+              index
+              element={
+                <PrivateRoute>
+                  <HomePage />
+                </PrivateRoute>
+              }
+            />
+            <Route exact path="/sign-in-page" element={<SignInPage />} />
+            <Route exact path="/sign-up-page" element={<SignUpPage />} />
+          </Route>
         </Routes>
-    </div>
+      </div>
+    );
 }
 
 export default App
