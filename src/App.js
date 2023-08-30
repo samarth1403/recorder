@@ -8,7 +8,7 @@ import SignUpPage from "./Pages/SignUpPage";
 import ProfilePage from "./Pages/ProfilePage";
 import { PrivateRoute } from "./Routing/PrivateRoute";
 
-const App = () => {
+const App = () => { 
     return (
       <div>
         <Routes>
