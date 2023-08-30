@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import React from "react";
 import { BiLogOutCircle } from "react-icons/bi";
 import { useSelector } from "react-redux";
@@ -15,16 +16,21 @@ const Header = () => {
     navigate("/");
   };
   return (
-    <div className="flex flex-row flex-wrap justify-center sm:justify-center items-center w-[100%] mt-8 px-16">
+    <div className="flex flex-row flex-wrap justify-center sm:justify-center items-center w-[100%] mt-4 px-16">
       <div className="flex grow justify-center items-center my-2">
         <Link to="/">
-          <p className="leading-snug ont-roboto font-bold text-center items-center text-[#FEE77A] text-5xl lg:ml-36">
-            Record
+          <p
+            className={classNames(
+              "leading-snug ont-roboto font-bold text-center items-center text-[#FEE77A] text-5xl",
+              {"lg:ml-16": user !== null}
+            )}
+          >
+            Record Rover
           </p>
         </Link>
       </div>
       <div className="flex flex-row flex-wrap justify-center items-center my-2">
-        <Link
+        {/* <Link
           to={user === null ? "/sign-in-page" : "/my-profile"}
           className="my-2 mx-4"
         >
@@ -37,7 +43,7 @@ const Header = () => {
               </p>
             </div>
           )}
-        </Link>
+        </Link> */}
         {user !== null && (
           <button
             className="font-roboto font-bold text-xl text-center text-white mx-2"

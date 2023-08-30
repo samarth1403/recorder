@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import {useSelector} from 'react-redux';
+import Button from "../ReusableComponents/Button";
 
 const CameraStream = () => {
   const videoReference = useRef(null);
@@ -43,18 +44,22 @@ const CameraStream = () => {
   return (
     <div className="flex flex-col flex-no-wrap justify-center items-center">
       {cameraAccess && (
-        <p className="font-roboto font-bold text-xl text-[#fff] text-center my-4">
+        <Button
+          
+          disabled={true}
+        >
           WebCam Preview
-        </p>
+        </Button>
       )}
       {startWebCam && cameraAccess && (
-        <div className="min-[320px]:w-[300px] sm:w-[400px] rounded-[20px] my-4">
-          <video ref={videoReference} autoPlay playsInline controls muted/>
+        <div className="min-[320px]:w-[300px] sm:w-[360px] rounded-[20px] my-4">
+          <video ref={videoReference} autoPlay playsInline controls muted />
         </div>
       )}
       {cameraAccess && (
         <button
-          className="bg-[#fff] h-[75px] min-[320px]:w-[200px] sm:w-[240px] font-roboto font-bold text-[#0D103C] text-xl rounded-[20px]
+          
+          className="bg-[#fff] h-[50px] min-[320px]:w-[180px] sm:w-[180px] font-roboto font-bold text-xl rounded-[10px] px-4 mx-4 mt-4 mb-4
         "
           onClick={handleStopWebCam}
         >

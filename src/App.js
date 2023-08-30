@@ -14,7 +14,6 @@ const App = () => {
                 <Route exact index element={<HomePage/>}/>
                 <Route exact path="/sign-in-page" element={<SignInPage/>}/>
                 <Route exact path="/sign-up-page" element={<SignUpPage/>}/>
-                <Route exact path="/my-profile" element={<ProfilePage/>}/>
             </Route>
         </Routes>
     </div>

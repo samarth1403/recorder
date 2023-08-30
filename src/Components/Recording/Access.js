@@ -3,20 +3,28 @@ import {toast} from 'react-toastify';
 import { Link } from 'react-router-dom';
 import {useDispatch , useSelector} from 'react-redux';
 import { giveAudioAccess, giveCameraAccess } from '../../features/user/userSlice';
+import Button from '../ReusableComponents/Button';
 
 const Access = () => {
 
-     const {cameraAccess , audioAccess} = useSelector((state)=>{
-        return state.user;
+     const {
+       cameraAccess,
+       audioAccess,
+       isRecordingStarted,
+       isRecordingStoped,
+     } = useSelector((state) => {
+       return state.user;
      });
      const dispatch = useDispatch();
+
+     console.log("isRecordingStarted",isRecordingStarted);
+     console.log("isRecordingStoped",isRecordingStoped);
 
      const handleClickCameraAccess = async () => {
        try {
          const camStream = await navigator.mediaDevices.getUserMedia({
            video: true,
          });
-        // setStream(camStream);
          toast.success("Camera Access is Allowed");
          dispatch(giveCameraAccess(true));
        } catch (error) {
@@ -38,35 +46,42 @@ const Access = () => {
 
   return (
     <div>
-      <div className="flex flex-col flex-no-wrap justify-center items-start">
+      <div className="flex flex-col flex-no-wrap justify-center items-center">
+        {!isRecordingStarted && !isRecordingStoped && (
+          <p className="leading-snug ont-roboto font-bold text-center items-center text-[#FEE77A] text-2xl my-4">
+            Record Your Screen & Dowload the Recorded Video
+          </p>
+        )}
+
         {!cameraAccess && (
-          <button
+          <Button
             // style={{
             //   background:
             //     "linear-gradient(90deg, #4DD4FF 0%, #F5F5F5 100%)",
             // }}
             onClick={handleClickCameraAccess}
-            style={{ boxShadow: "8px 8px 4px #0D103C" }}
-            className="bg-[#fff] h-[75px] min-w-[320px]:w-[280px] sm:w-[380px] font-roboto font-bold text-[#0D103C] text-2xl rounded-[20px] px-4 mx-4 mt-4 mb-8"
+            style={{
+              background: "linear-gradient(90deg, #53FFB8 0%, #ACE7FF 100%)",
+            }}
           >
             {cameraAccess
               ? "Camera Access is Allowed"
               : "Allow to Access Camera"}
-          </button>
+          </Button>
         )}
-
         {!audioAccess && (
-          <button
+          <Button
             // style={{
             //   background:
             //     "linear-gradient(90deg, #4DD4FF 0%, #F5F5F5 100%)",
             // }}
             onClick={handleClickAudioAccess}
-            style={{ boxShadow: "8px 8px 4px #0D103C" }}
-            className="bg-[#fff] h-[75px] min-[320px]:w-[280px] sm:w-[380px] font-roboto font-bold  text-[#0D103C] text-2xl rounded-[20px] px-4 mx-4 mt-4 mb-8"
+            style={{
+              background: "linear-gradient(90deg, #53FFB8 0%, #ACE7FF 100%)",
+            }}
           >
             {audioAccess ? "Audio Access is Allowed " : "Allow to Access Audio"}
-          </button>
+          </Button>
         )}
       </div>
     </div>

@@ -95,7 +95,7 @@ const SignIn = () => {
                 onClick={() => formik.resetForm()}
                 type="button"
                 style={{ boxShadow: "8px 8px 4px #0D103C" }}
-                className="bg-[#fff] w-[100px] h-[75px] font-roboto font-bold  text-[#0D103C] text-xl rounded-[20px] px-4 mx-4 mt-4 mb-8"
+                className="bg-[#fff] w-[100px] h-[75px] font-roboto font-bold  text-[#0D103C] text-xl rounded-[20px] px-4 mx-4 mt-4 mb-4"
               >
                 Reset
               </button>
@@ -106,7 +106,7 @@ const SignIn = () => {
                 // }}
                 type="submit"
                 style={{ boxShadow: "8px 8px 4px #0D103C" }}
-                className="bg-[#fff] w-[100px] h-[75px] font-roboto font-bold  text-[#0D103C] text-xl rounded-[20px] px-4 mx-4 mt-4 mb-8"
+                className="bg-[#fff] w-[100px] h-[75px] font-roboto font-bold  text-[#0D103C] text-xl rounded-[20px] px-4 mx-4 mt-4 mb-4"
               >
                 Log In
               </button>
@@ -125,10 +125,15 @@ const SignIn = () => {
           >
             Sign In With Google
           </button> */}
+            <Link to="sign-up-page">
+              <p className="text-[#0D103C] font-roboto font-bold text-xl m-4">
+                Create Account
+              </p>
+            </Link>
           </form>
         )}
       </div>
-      <div className="flex flex-col flex-no-wrap justify-center items-center">
+      {/* <div className="flex flex-col flex-no-wrap justify-center items-center">
         <p className="text-[#fff] font-roboto font-bold text-3xl mx-6 my-4">
           Create Account
         </p>
@@ -154,7 +159,7 @@ const SignIn = () => {
             </button>
           </Link>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

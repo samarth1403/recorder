@@ -20,6 +20,8 @@ const initialState = {
   cameraAccess: false,
   audioAccess: false,
   cameraStream: null,
+  isRecordingStarted : false,
+  isRecordingStoped : false,
 };
 
 export const registerUser = createAsyncThunk(
@@ -67,6 +69,8 @@ export const logoutUser = createAction("logout/user");
 export const giveCameraAccess = createAction("camera/access");
 export const giveAudioAccess = createAction("audio/access");
 export const setCameraStream = createAction("camera/stream");
+export const startNewRecording = createAction("recording/start");
+export const stopNewRecording = createAction("recording/stop");
 
 const userSlice = createSlice({
   name: "user",
@@ -196,6 +200,15 @@ const userSlice = createSlice({
     builder.addCase(setCameraStream, (state,action) => {
       state.cameraStream = action.payload;
     });
+
+    builder.addCase(startNewRecording, (state,action) => {
+      state.isRecordingStarted = action.payload;
+    });
+
+    builder.addCase(stopNewRecording, (state, action) => {
+      state.isRecordingStoped = action.payload;
+    });
+
   },
 });
 
