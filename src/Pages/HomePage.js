@@ -4,7 +4,6 @@ import {toast} from 'react-toastify';
 import Access from '../Components/Recording/Access';
 import StartRecording from '../Components/Recording/StartRecording';
 import WebCam from '../Components/Recording/WebCam';
-import Dummy from "./dummycode";
 import {PrivateRoute} from "../Routing/PrivateRoute";
 
 const HomePage = () => {
