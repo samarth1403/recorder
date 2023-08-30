@@ -125,7 +125,7 @@ const SignIn = () => {
           >
             Sign In With Google
           </button> */}
-            <Link to="sign-up-page">
+            <Link to="/sign-up-page">
               <p className="text-[#0D103C] font-roboto font-bold text-xl m-4">
                 Create Account
               </p>
