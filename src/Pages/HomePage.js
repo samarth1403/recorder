@@ -19,9 +19,7 @@ const HomePage = () => {
     <div className="flex flex-row flex-wrap justify-center items-start my-4">
       <div className="flex flex-col flex-no-wrap justify-center items-center px-6">
         <Access />
-        <PrivateRoute>
-          <StartRecording />
-        </PrivateRoute>
+        <StartRecording />
       </div>
       <div className="px-6">
         <WebCam />
