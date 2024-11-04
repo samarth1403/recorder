@@ -1,12 +1,8 @@
 import React from "react";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
-import HomePage from "./Pages/HomePage";
 import MainLayout from "./Components/Layout/MainLayout";
-import SignInPage from "./Pages/SignInPage";
-import SignUpPage from "./Pages/SignUpPage";
-import ProfilePage from "./Pages/ProfilePage";
-import { PrivateRoute } from "./Routing/PrivateRoute";
+import HomePage from "./Pages/HomePage";
 
 const App = () => {
   return (
